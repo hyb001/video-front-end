@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+  height: 100%;
+}
+
+.text1 {
+  font-size: 14px;
+  color: rgb(124, 125, 133);
+}
+.audio-download-mode {
+  background: #fff !important;
+}
+.audio-upload-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: rgb(245,245,245);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px 0 rgba(20, 51, 254, 0.04);
+  position: relative;
+  width: 270px;
+  min-height: 84px;
+
+  .audio-card-row1 {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    .audio-file-name {
+      font-size: 14px;
+      color: #333333;
+      font-weight: 700;
+      word-break: break-all;
+      flex: 1;
+    }
+    .audio-card-right {
+      margin-left: 12px;
+      .audio-remove-btn {
+        font-size: 22px;
+        color: #888;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover {
+          color: #ff4d4f;
+        }
+      }
+    }
+  }
+  .audio-card-row2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+    .audio-progress-bar {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      .audio-progress-bg {
+        flex: 1;
+        width: 140px;
+        height: 6px;
+        background: #e3e6ee;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        .audio-progress-fg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          background: #225cff;
+          border-radius: 4px;
+          transition: width 0.2s;
+          width: 0%;
+        }
+      }
+      .music-style {
+        height: 20px; 
+        margin-top: -12px;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        display: flex;
+        align-items: flex-end;
+      }
+      
+      .audio-waveform {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        z-index: 1;
+      }
+      .audio-waveform-bar {
+        width: 1px;
+        margin: 0 1px;
+        border-radius: 2px;
+        background: #d3d3d3;
+        transition: background 0.2s, height 0.2s;
+        display: inline-block;
+        /* 让柱子底部对齐 */
+        align-self: flex-end;
+      }
+      .audio-waveform-bar.active {
+        background: #1890ff;
+      }
+      .audio-duration {
+        font-size: 14px;
+        color: #222;
+        min-width: 65px;
+        text-align: right;
+      }
+    }
+  }
+}
+
+:where(.css-dev-only-do-not-override-1v5z42l).ant-form-item .ant-form-item-explain-error {
+  font-size: 12px !important;
+  color: #F27923 !important;
+}
+
+:where(.css-dev-only-do-not-override-1v5z42l).ant-input-filled.ant-input-status-error:not(.ant-input-disabled) {
+  background: #F3F3F3 !important;
+  border: 1px solid var(--100, #F27923) !important;
+}
+
+:where(.css-dev-only-do-not-override-1v5z42l).ant-input-compact-item:not(.ant-input-compact-last-item) {
+  margin-inline-end:0px !important;
+}

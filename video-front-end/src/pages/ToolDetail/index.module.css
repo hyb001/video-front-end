@@ -1,0 +1,46 @@
+.container {
+    padding: 16px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+  
+  .toolCard {
+    /* margin-bottom: 24px; */
+  }
+  
+  .toolHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .toolIcon {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+  }
+  
+  .category {
+    color: rgba(0, 0, 0, 0.45);
+  }
+  
+  .description {
+    margin-bottom: 24px;
+    font-size: 16px;
+  }
+  
+  .usage, .examples {
+    padding: 16px 0;
+  }

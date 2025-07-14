@@ -1,0 +1,881 @@
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-textarea-affix-wrapper,
+.ant-input textarea,
+.ant-input,
+.ant-input-disabled,
+.ant-input[disabled],
+.ant-input:disabled,
+.ant-input[readonly],
+.ant-input:read-only,
+.ant-input-textarea,
+.ant-input-textarea textarea {
+  background: rgb(245,245,245) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.ai-render-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  > *:nth-child(2) {
+    margin-bottom: 20px;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex: 1 1 auto; //让main-content占据剩余空间
+  min-height: 0; //防止溢出
+  gap: 20px
+}
+
+.left-panel {
+  width: 43%;
+  border-right: 1px solid #e8e8e8;
+  // height: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.right-panel {
+  width: 67%;
+  // height: 100%;
+  height: auto;
+  border-radius: 16px; // 右上、右下圆角
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+.save-btn {
+  position: absolute;
+  background-color: #1433FE;
+  bottom: 0px;
+}
+.workflow-panel {
+  height: 100%;
+}
+
+.config-panel {
+  height: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  .ant-tabs,
+  .ant-tabs-content,
+  .ant-tabs-content-top {
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-tabs-tabpane {
+    height: 100% !important;
+    min-height: 0 !important;
+    flex-direction: column;
+  }
+  .ant-tabs-tabpane-active {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.timeline-panel {
+  // height: 23vh;
+  max-height: 23vh;
+  min-height: 200px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  flex-shrink: 0; // 防止被压缩
+  // margin-top: auto;
+}
+
+// 工作流表单样式
+.workflow-form {
+  .output-item {
+    margin-bottom: 16px;
+
+    .output-label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .output-value {
+      pre {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        max-height: 300px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+
+// 视频编辑器样式
+.video-editor {
+  .video-container {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    margin-bottom: 16px;
+  }
+
+  .upload-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: 1px dashed #d9d9d9;
+  }
+
+  .video-controls {
+    margin-top: 16px;
+  }
+}
+
+// 时间线编辑器样式
+.timeline-editor {
+  .timeline-tracks {
+    border: 1px solid #e8e8e8;
+    margin-bottom: 16px;
+
+    .timeline-track {
+      display: flex;
+      height: 80px;
+      border-bottom: 1px solid #e8e8e8;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .track-header {
+        width: 100px;
+        padding: 8px;
+        background-color: #f5f5f5;
+        border-right: 1px solid #e8e8e8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .track-content {
+        flex: 1;
+        position: relative;
+        overflow-x: auto;
+        min-width: 0;
+
+        .track-clip {
+          position: absolute;
+          height: 100%;
+          background-color: #1890ff;
+          border-radius: 4px;
+          color: white;
+          cursor: pointer;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.selected {
+            border: 2px solid #ff4d4f;
+          }
+
+          .clip-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2px 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  .timeline-controls {
+    margin-top: 16px;
+  }
+
+  &.simplified {
+    .timeline-tracks {
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .timeline-controls {
+      display: none;
+    }
+  }
+}
+
+// 输出视频样式
+.output-video {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+}
+
+.no-output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: #f0f0f0;
+  border: 1px dashed #d9d9d9;
+}
+
+// 工作流面板
+.react-flow{
+  max-height: 90% !important;
+}
+.react-flow__attribution {
+  display: none !important;
+}
+
+.custom-upload-card {
+  width: 100%;
+
+  .ant-upload {
+    width: 100%;
+  }
+
+  .custom-upload-card-inner {
+    width: 270px;
+    min-height: 93px;
+    background: #f5f5f5;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: border 0.2s;
+    border: 1.5px solid transparent;
+
+    &:hover {
+      border: 1.5px solid #1677ff;
+    }
+  }
+
+  .custom-upload-icon {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+
+    .custom-upload-title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  .custom-upload-desc {
+    color: #33333366;
+    font-weight: 400px;
+    font-size: 12px;
+  }
+}
+
+// 脚本生成输出
+// .script-output-area {
+  // background: #f5f5f5;
+  // border-radius: 8px;
+  // min-height: 485px;
+  // width: 100%;
+  // box-shadow: none;
+  // border: none;
+  // padding: 16px 16px 16px 16px;
+  // font-size: 16px;
+  // color: #222;
+  // margin-top: 8px;
+  // margin-bottom: 8px;
+  // overflow-y: auto;
+// }
+.script-output-area {
+  // background: #f5f5f5;
+  // border-radius: 8px;
+  // min-height: 485px;
+  // width: 100%;
+  // box-shadow: none;
+  // border: none;
+  // padding: 16px 16px 16px 16px;
+  // font-size: 16px;
+  // color: #222;
+  // margin-top: 8px;
+  // margin-bottom: 8px;
+  // overflow-y: auto;
+  .script-block {
+    margin-bottom: 12px;
+    span {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+  .script-content,
+  .script-lines,
+  .script-scenes {
+    max-height: 12em;
+    overflow-y: auto;
+    background: #f8f8f8;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+  .script-content {
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0;
+  }
+  .script-line-item {
+    line-height: 1.5em;
+  }
+  .script-scene-item {
+    margin-bottom: 6px;
+    .scene-title {
+      font-weight: 500;
+    }
+    .scene-content {
+      white-space: pre-wrap;
+    }
+  }
+}
+.workflow-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 18px 16px;
+}
+
+.workflow-header-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333333;
+  letter-spacing: 1px;
+}
+
+.workflow-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.workflow-header-history-select {
+  font-size: 14px;
+  width: 140px;
+  margin-right: 0;
+  border: none !important;
+  background: transparent !important;
+  .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 8px;
+    font-size: 14px;
+    color: #666;
+  }
+  // 隐藏默认箭头
+  .ant-select-arrow {
+    display: flex;
+    align-items: center;
+    right: 8px;
+    color: transparent; // 隐藏原色
+    svg {
+      display: block;
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+}
+
+.workflow-header-run-btn {
+  font-size: 16px !important;
+  height: 25px;
+  background: rgb(235,235,235) !important;
+  border: none !important;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1433FE !important;
+  .ant-btn-icon {
+    margin-right: 4px;
+  }
+  span {
+    color: #1433FE !important;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+// 工作流节点通用样式
+.workflow-node {
+  // border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgb(232,235,255);
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &.selected {
+    border: 1px solid #1677ff;
+    box-shadow: 0 0 10px rgba(22, 119, 255, 0.1);
+  }
+
+  .node-handle {
+    background: #1677ff;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .node-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .node-status-icon {
+    font-size: 16px;
+    
+    &.idle {
+      color: #1677ff;
+    }
+    &.running {
+      color: #1677ff;
+    }
+    &.completed {
+      color: #52c41a;
+    }
+    &.error {
+      color: #ff4d4f;
+    }
+  }
+
+  .node-info {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    
+    strong {
+      font-weight: 500;
+      margin-right: 4px;
+    }
+  }
+
+  .node-result {
+    font-size: 12px;
+    color: #333;
+    background: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    
+    &.script-result {
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 120px;
+      word-break: break-all;
+    }
+
+    .result-summary {
+      margin-bottom: 4px;
+    }
+
+    .audio-buttons, .video-buttons {
+      display: flex;
+      gap: 4px;
+    }
+    .audio-list {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .audio-item {
+      background: #fff;
+      border-radius: 8px;
+      width: 250px; // 更小尺寸
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+      .audio-upload-card {
+        width: 100%;
+        &.mini {
+          // 针对mini尺寸的AudioUploadCard
+          .audio-play-btn img {
+            width: 22px !important;
+            height: 22px !important;
+          }
+          .audio-download-btn img {
+            width: 16px !important;
+            height: 16px !important;
+          }
+        }
+      }
+    }
+    // 兼容直接给audio-upload-card加mini类
+    .audio-upload-card.mini {
+      min-height: 40px;
+      padding: 10px 20px 14px 10px;
+      .audio-card-row1 {
+        display: flex;
+        align-items: center;
+      }
+      .audio-play-btn img {
+        width: 28px !important;
+        height: 28px !important;
+      }
+      .audio-download-btn img {
+        width: 16px !important;
+        height: 16px !important;
+      }
+    }
+    .audio-name {
+      margin-top: 2px;
+      font-size: 11px;
+      text-align: center;
+      color: #333;
+      word-break: break-all;
+    }
+    .more-indicator {
+      align-self: center;
+      font-size: 14px;
+      color: #999;
+      margin-left: 8px;
+    }
+  }
+
+  .node-action-btn {
+    padding: 0 4px;
+    
+    &:hover {
+      color: #1677ff;
+      background: rgba(22, 119, 255, 0.1);
+    }
+  }
+}
+
+.ant-space-item {
+  width: 100%;
+}
+
+.settings-form {
+  max-width: 560px;
+}
+
+.audio-upload-row {
+  display: flex;
+  gap: 16px;
+  
+  .audio-upload-item {
+    flex: 1;
+    margin-bottom: 24px;
+  }
+}
+
+.settings-form {
+  .form-item-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.ant-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 每行3列
+  justify-items: start; // 每列左对齐
+}
+.ant-radio-wrapper {
+  margin-bottom: 8px;
+}
+
+// WorkflowForm 组件样式
+.workflow-form {
+  .section-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 13px;
+    
+    &.text-left {
+      text-align: left;
+    }
+  }
+  
+  .subtitle {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .script-output-area {
+    .script-block {
+      margin-bottom: 12px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .script-content {
+        white-space: pre-wrap;
+      }
+      
+      .script-line-item {
+        margin-bottom: 8px;
+      }
+      
+      .script-scene-item {
+        margin-bottom: 16px;
+        
+        .scene-title {
+          font-weight: 500;
+          margin-bottom: 8px;
+        }
+        
+        .scene-content {
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+  
+  .material-video-grid {
+    height: 480px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 8px;
+    background: #fafbfc;
+    border-radius: 12px;
+    
+    .material-video-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #eee;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      video {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #000;
+      }
+      
+      .material-video-title {
+        margin-top: 8px;
+        color: #888;
+      }
+    }
+    
+    .no-material-message {
+      grid-column: 1/4;
+      text-align: center;
+      color: #bbb;
+    }
+  }
+  
+  .video-synthesis-input {
+    height: 480px;
+    overflow-y: auto;
+    
+    .input-section {
+      margin-bottom: 20px;
+    }
+    
+    .speech-list-container {
+      display: grid;
+      gap: 16px;
+      
+      .no-clone-result {
+        color: #999;
+      }
+      
+      .audio-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+    
+    .video-list-container {
+      display: grid;
+      gap: 10px;
+    }
+  }
+  
+  .video-container {
+    height: 480px;
+    background: #fafafa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    
+    &.taller {
+      height: 580px;
+    }
+    
+    .video-wrapper {
+      width: 100%;
+      
+      &.with-padding {
+        padding: 0 2px;
+      }
+      
+      .video-content {
+        position: relative;
+        width: 100%;
+        
+        video {
+          width: 100%;
+          border-radius: 8px;
+          background: #000;
+          
+          &.full-height {
+            height: 580px;
+          }
+        }
+      }
+    }
+    
+    .no-video-message {
+      color: #999;
+    }
+  }
+  
+  .evaluation-container {
+    height: 480px;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 16px;
+    
+    .eval-result {
+      margin-bottom: 16px;
+      height: 480px;
+      overflow-y: auto;
+      
+      .eval-title {
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      
+      .eval-content {
+        white-space: pre-wrap;
+      }
+    }
+    
+    .no-eval-message {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #999;
+    }
+  }
+  
+  .clone-output-container {
+    background-color: rgb(245,245,245);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    
+    .no-clone-message {
+      color: #999;
+    }
+    
+    .audio-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  
+  .script-content-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    
+    .script-scene-item {
+      margin-bottom: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    
+    .no-script-message {
+      color: #bbb;
+      margin-bottom: 16px;
+    }
+  }
+  
+  .audio-output-item {
+    .output-label {
+      margin-bottom: 8px;
+    }
+    
+    .audio-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px;
+      
+      .audio-name {
+        margin-top: 4px;
+      }
+    }
+  }
+  
+  .text-field-container {
+    display: flex;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
